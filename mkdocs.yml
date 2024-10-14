@@ -1,0 +1,16 @@
+site_name: data-password-entropy
+site_author: Oleh Alistratov
+repo_url: https://github.com/alistratov/password-entropy-py
+edit_uri: blob/main/docs/
+
+#nav:
+#  - Usage: index.md
+#  - References: references.md
+#  - License: license.md
+
+theme: readthedocs
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: "#"
