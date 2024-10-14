@@ -10,9 +10,10 @@ LOWER = 3
 PUNCTUATION_1 = 4
 PUNCTUATION_2 = 5
 OTHER = 6
+N_CLASSES = 7
 
-CHAR_CLASSES = [0] * 128
-CLASS_CAPACITIES = [0] * 7
+CHAR_CLASSES = [0] * 128  # ASCII table
+CLASS_CAPACITIES = [0] * N_CLASSES
 
 def _initialize_char_classes():
     # Initialize the character classes table
@@ -48,7 +49,7 @@ def password_entropy(password: str) -> int:
         return 0
 
     eff_len = 0.0  # effective length
-    used_classes = set()
+    used_classes = [False] * N_CLASSES
     char_counts = {}
     distances = {}
     prev_nc: int = 0  # previous character code
@@ -56,9 +57,9 @@ def password_entropy(password: str) -> int:
     for i, c in enumerate(s):
         nc = ord(c)
         if nc > 127:
-            used_classes.add(OTHER)
+            used_classes[OTHER] = True
         else:
-            used_classes.add(CHAR_CLASSES[nc])
+            used_classes[CHAR_CLASSES[nc]] = True
 
         incr = 1.0  # value to increment effective length
         if i > 0:
@@ -81,8 +82,9 @@ def password_entropy(password: str) -> int:
 
     # Capacity of the classes used
     pci = 0
-    for c in used_classes:
-        pci += CLASS_CAPACITIES[c]
+    for i in range(N_CLASSES):
+        if used_classes[i]:
+            pci += CLASS_CAPACITIES[i]
 
     assert pci != 0
     bits_per_char = math.log2(pci)
