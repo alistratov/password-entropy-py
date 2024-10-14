@@ -23,17 +23,17 @@ There are a lot of different ways to determine a password's entropy.
 The data-password-entropy package uses a simple, empirical algorithm to calculate password entropy through the following steps:
 
 * Character classification:
-  * Categorization: each character in the password is assigned to a specific class, such as numbers, lowercase letters, uppercase letters, or others.
-  * Assumption: characters within the same class are assumed to have an equal probability of being selected.
-  * Symbol base expansion: incorporating characters from multiple classes increases the total number of possible symbols (symbol base), thereby enhancing the password's entropy.
+    * Categorization: each character in the password is assigned to a specific class, such as numbers, lowercase letters, uppercase letters, or others.
+    * Assumption: characters within the same class are assumed to have an equal probability of being selected.
+    * Symbol base expansion: incorporating characters from multiple classes increases the total number of possible symbols (symbol base), thereby enhancing the password's entropy.
 
 * Effective length calculation:
-  * Orderliness reduction: sequences like `1234` are considered less secure than `1342` because ordered sequences reduce total entropy.
-  * Repeating characters: repeating sequences, such as `aaaa`, diminish entropy compared to more varied character arrangements.
+    * Orderliness reduction: sequences like `1234` are considered less secure than `1342` because ordered sequences reduce total entropy.
+    * Repeating characters: repeating sequences, such as `aaaa`, diminish entropy compared to more varied character arrangements.
 
 * Character classes:
-  * ASCII characters: characters with Unicode code points up to 127 are categorized into predefined classes (e.g., numbers, uppercase letters).
-  * Non-ASCII characters: all characters with code points above 127 are grouped into a single class.
+    * ASCII characters: characters with Unicode code points up to 127 are categorized into predefined classes (e.g., numbers, uppercase letters).
+    * Non-ASCII characters: all characters with code points above 127 are grouped into a single class.
 
 There is no well-defined approach to processing national or extended Unicode characters. For instance, the Greek letters block in the Unicode Character Database comprises approximately 400 symbols. However, not all of these symbols are used with equal frequency. An attacker who knows that a password may contain Greek letters is unlikely to target the simple α (Greek letter Alpha) with the same probability as the more complex ἆ (Greek small letter Alpha with psili and perispomeni). This disparity in usage patterns makes it impractical to assign distinct probabilities to each individual character within a script or Unicode block.
 
@@ -44,8 +44,6 @@ Therefore, to maintain simplicity and efficiency, all characters with Unicode co
 * No obfuscation evaluation: it cannot assess the complexity introduced by character substitutions like `p@ssw0rd`.
 * No sequence detection: keyboard sequences or other patterned inputs are not specifically handled.
 * No personal information assessment: the algorithm does not account for passwords containing personally identifiable information, such as names or dates of birth.
-
-Similarly, there is no well-defined approach to process national characters. For example, the Greek letters block in Unicode Character Database contains about 400 symbols, but not all of them have equivalent frequency of usage. An intruder, who knows that password may contain Greek letters, will not probe the α (Greek letter Alpha) with the same probability as the ἆ (Greek small letter Alpha with psili and perispomeni), therefore it might be incorrect to consider a whole UCD block or script as a base for calculating probabilities. We consider all characters with codes higher than 127 form one class.
 
 
 ## Installation
