@@ -1,6 +1,6 @@
 import unittest
 
-from password_entropy import password_entropy
+from data_password_entropy import password_entropy
 
 
 class TestPasswordEntropy(unittest.TestCase):

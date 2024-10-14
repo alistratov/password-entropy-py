@@ -2,7 +2,7 @@ import unittest
 import random
 import time
 
-from password_entropy import password_entropy
+from data_password_entropy import password_entropy
 from .decorators import loading_tests_enabled
 
 """

@@ -166,4 +166,4 @@ cython_debug/
 MY_NOTES.md
 poetry.lock
 tests_manual/
-
+x3/
