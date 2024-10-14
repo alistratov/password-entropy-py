@@ -1,12 +1,12 @@
-# password-entropy
+# data-password-entropy
 Calculate password strength.
 
-[![PyPI - Version](https://img.shields.io/pypi/v/password-entropy)](https://pypi.org/project/password-entropy/) [![codecov](https://codecov.io/gh/alistratov/password-entropy/graph/badge.svg?token=MSJLFL8XFD)](https://codecov.io/gh/alistratov/password-entropy) [![Documentation Status](https://readthedocs.org/projects/password-entropy/badge/?version=latest)](https://password-entropy.readthedocs.io/en/latest/?badge=latest) [![PyPI - Downloads](https://img.shields.io/pypi/dm/password-entropy)](https://pypistats.org/packages/password-entropy)
+[![PyPI - Version](https://img.shields.io/pypi/v/data-password-entropy)](https://pypi.org/project/data-password-entropy/) [![codecov](https://codecov.io/gh/alistratov/password-entropy-py/graph/badge.svg?token=MSJLFL8XFD)](https://codecov.io/gh/alistratov/password-entropy-py) [![Documentation Status](https://readthedocs.org/projects/data-password-entropy/badge/?version=latest)](https://data-password-entropy.readthedocs.io/en/latest/?badge=latest) [![PyPI - Downloads](https://img.shields.io/pypi/dm/data-password-entropy)](https://pypistats.org/packages/data-password-entropy)
 
 
 ## Synopsis
 ```bash
-pip install password-entropy
+pip install data-password-entropy
 ```
 
 ```python-repl
@@ -20,11 +20,11 @@ pip install password-entropy
 
 
 ## Overview
-The `password-entropy` package provides function...
+The `data-password-entropy` package provides function...
 
 
 ## Documentation
-Read the full documentation at [Read the docs](https://password-entropy.readthedocs.io/en/latest/).
+Read the full documentation at [Read the docs](https://data-password-entropy.readthedocs.io/en/latest/).
 
 
 ## License
