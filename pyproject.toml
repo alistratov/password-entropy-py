@@ -1,6 +1,6 @@
 [project]
 name = "data-password-entropy"
-version = "0.0.2"
+version = "1.0"
 authors = [
   { name="Oleh Alistratov", email="alistratov.dev@gmail.com" },
 ]
@@ -25,7 +25,7 @@ build-backend = "flit_core.buildapi"
 
 [tool.poetry]
 name = "data-password-entropy"
-version = "0.0.2"
+version = "1.0"
 description = "Calculate password strength"
 authors = ["Oleh Alistratov <alistratov.dev@gmail.com>"]
 license = "Apache-2.0"

@@ -69,9 +69,11 @@ e = password_entropy('Vgk4@HDk6X7gEp7')
 Calculates the entropy of the provided password.
 
 **Parameters:**
+
 - `password` (`str`): The password string to evaluate.
 
 **Returns:**
+
 - `int`: The entropy value in bits representing the password's strength.
 
 
