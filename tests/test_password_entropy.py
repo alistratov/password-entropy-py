@@ -18,6 +18,7 @@ class TestPasswordEntropy(unittest.TestCase):
         self.assertEqual(password_entropy('0'), 3)
         self.assertEqual(password_entropy(' '), 4)
         self.assertEqual(password_entropy('a'), 4)
+        self.assertEqual(password_entropy("\t"), 5)
         self.assertEqual(password_entropy('123456'), 10)
         self.assertEqual(password_entropy('qwerty'), 28)
         self.assertEqual(password_entropy('P@ssw0rd'), 47)
