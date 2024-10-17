@@ -38,6 +38,8 @@ class TestPasswordEntropy(unittest.TestCase):
         self.assertEqual(password_entropy('aaaaaaaaaaaaaaaaax'), 13)
 
         # pair distance
+        self.assertEqual(password_entropy('1234'), 9)
+        self.assertEqual(password_entropy('1243'), 13)
         self.assertEqual(password_entropy('abab'), 12)
         self.assertEqual(password_entropy('abba'), 14)
         self.assertEqual(password_entropy('ababab'), 14)

@@ -27,7 +27,7 @@ def _initialize_char_classes():
         elif ord('a') <= i <= ord('z'):
             c = LOWER
         elif i == 32 or chr(i) in '!@#$%^&*()_+-=/.,':
-            # Punctuation marks, which can be typed with first row of keyboard or numpad
+            # Punctuation marks, which can be typed with the first row of keyboard or numpad
             c = PUNCTUATION_1
         else:
             # Other punctuation marks, like []{};'"~
@@ -52,9 +52,10 @@ def password_entropy(password: str) -> int:
     used_classes = [False] * N_CLASSES
     char_counts = {}
     distances = {}
-    prev_nc: int = 0  # previous character code
 
-    for i, c in enumerate(s):
+    first = True
+    prev_nc: int = 0  # previous character code
+    for c in s:
         nc = ord(c)
         if nc > 127:
             used_classes[OTHER] = True
@@ -62,7 +63,7 @@ def password_entropy(password: str) -> int:
             used_classes[CHAR_CLASSES[nc]] = True
 
         incr = 1.0  # value to increment effective length
-        if i > 0:
+        if not first:
             # Not the first character
             d = nc - prev_nc
             if d in distances:
@@ -70,6 +71,8 @@ def password_entropy(password: str) -> int:
                 incr /= distances[d]
             else:
                 distances[d] = 1
+        else:
+            first = False
 
         if c in char_counts:
             char_counts[c] += 1
@@ -86,6 +89,5 @@ def password_entropy(password: str) -> int:
         if used_classes[i]:
             pci += CLASS_CAPACITIES[i]
 
-    assert pci != 0
     bits_per_char = math.log2(pci)
     return math.floor(eff_len * bits_per_char)
